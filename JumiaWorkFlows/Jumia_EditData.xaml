@@ -1,16 +1,22 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Searching_RayaResultPage_SortingResult" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Jumia_FilterData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="In_DT_Extractedata" Type="InArgument(sd:DataTable)" />
     <x:Property Name="In_Searching" Type="InArgument(x:String)" />
+    <x:Property Name="In_DT_Extractedata" Type="InArgument(sd:DataTable)" />
     <x:Property Name="Out_DT_Extractedata" Type="OutArgument(sd:DataTable)" />
   </x:Members>
+  <this:Jumia_FilterData.In_Searching>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Jumia_FilterData.In_Searching>
+  <this:Jumia_FilterData.In_DT_Extractedata>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:Jumia_FilterData.In_DT_Extractedata>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>908,2084</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>Searching_RayaResultPage_SortingResult_1</sap2010:WorkflowViewState.IdRef>
+  <sap:VirtualizedContainerService.HintSize>908,1824</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Jumia_FilterData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="33">
+    <scg:List x:TypeArguments="x:String" Capacity="52">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -32,22 +38,17 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
-      <x:String>System.Collections.ObjectModel</x:String>
-      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
-      <x:String>UiPath.DataTableUtilities</x:String>
-      <x:String>System.Text.RegularExpressions</x:String>
-      <x:String>System.Reflection</x:String>
-      <x:String>System.Runtime.InteropServices</x:String>
-      <x:String>UiPath.Excel.Activities</x:String>
       <x:String>UiPath.Excel</x:String>
-      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -64,42 +65,18 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="SoringData" DisplayName="Searching_RayaResultPage_SortingResult" sap:VirtualizedContainerService.HintSize="560,2019" sap2010:WorkflowViewState.IdRef="Sequence_1">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="s:String[]" Name="SearchingArray" />
-    </Sequence.Variables>
+  <Sequence DisplayName="Jumia_FilterData" sap:VirtualizedContainerService.HintSize="560,1759" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="PreConditon" sap:VirtualizedContainerService.HintSize="518,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </Sequence>
-    <Sequence DisplayName="Behaviar" sap:VirtualizedContainerService.HintSize="518,1667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="FilterData" sap:VirtualizedContainerService.HintSize="518,1667" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -109,6 +86,7 @@
       <Sequence DisplayName="Filter Data" sap:VirtualizedContainerService.HintSize="476,578" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="NameList" />
+          <Variable x:TypeArguments="s:String[]" Name="SearchingArray" />
         </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -116,7 +94,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
             <OutArgument x:TypeArguments="s:String[]">[SearchingArray]</OutArgument>
           </Assign.To>
@@ -124,19 +102,19 @@
             <InArgument x:TypeArguments="s:String[]">[Split(In_Searching," ")]</InArgument>
           </Assign.Value>
         </Assign>
-        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,386" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[SearchingArray]">
+        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,386" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[SearchingArray]">
           <ui:ForEach.Body>
             <ActivityAction x:TypeArguments="x:String">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:String" Name="item" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_25">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:FilterDataTable DataTable="[In_DT_Extractedata]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[Out_DT_Extractedata]" SelectColumnsMode="Keep">
+                <ui:FilterDataTable DataTable="[In_DT_Extractedata]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Out_DT_Extractedata]" SelectColumnsMode="Keep">
                   <ui:FilterDataTable.Filters>
                     <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                       <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -144,7 +122,23 @@
                           <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
                         </ui:FilterOperationArgument.Column>
                         <ui:FilterOperationArgument.Operand>
-                          <InArgument x:TypeArguments="x:String">[item.ToString.Trim]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[item.Trim]</InArgument>
+                        </ui:FilterOperationArgument.Operand>
+                      </ui:FilterOperationArgument>
+                      <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTENDSWITH">
+                        <ui:FilterOperationArgument.Column>
+                          <InArgument x:TypeArguments="x:String">["Price"]</InArgument>
+                        </ui:FilterOperationArgument.Column>
+                        <ui:FilterOperationArgument.Operand>
+                          <InArgument x:TypeArguments="x:String">["%"]</InArgument>
+                        </ui:FilterOperationArgument.Operand>
+                      </ui:FilterOperationArgument>
+                      <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
+                        <ui:FilterOperationArgument.Column>
+                          <InArgument x:TypeArguments="x:String">["Price"]</InArgument>
+                        </ui:FilterOperationArgument.Column>
+                        <ui:FilterOperationArgument.Operand>
+                          <InArgument x:TypeArguments="x:String">["EGP"]</InArgument>
                         </ui:FilterOperationArgument.Operand>
                       </ui:FilterOperationArgument>
                     </scg:List>
@@ -166,33 +160,34 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:ForEach>
       </Sequence>
-      <Sequence DisplayName="Write Data in excel" sap:VirtualizedContainerService.HintSize="476,957" sap2010:WorkflowViewState.IdRef="Sequence_13">
+      <Sequence DisplayName="Write Data in excel" sap:VirtualizedContainerService.HintSize="476,957" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,865" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="Data.xlsx">
+        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,865" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="Data.xlsx">
           <ui:ExcelApplicationScope.Body>
             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,756" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,756" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ExcelWriteRange AddHeaders="False" DataTable="[new DataTable(&quot; &quot;)]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_3" SheetName="Raya">
+                <ui:ExcelWriteRange AddHeaders="False" DataTable="[new DataTable(&quot; &quot;)]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Jumia">
                   <ui:ExcelWriteRange.StartingCell>
                     <InArgument x:TypeArguments="x:String">
                       <Literal x:TypeArguments="x:String" Value="" />
                     </InArgument>
                   </ui:ExcelWriteRange.StartingCell>
                 </ui:ExcelWriteRange>
-                <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Out_DT_Extractedata]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Raya" />
-                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.red]" DisplayName="Set Range Color Red to Max Price" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_5" Range="[&quot;A&quot;+(Out_DT_Extractedata.Rows.Count).ToString+&quot;:B&quot;+(Out_DT_Extractedata.Rows.Count).ToString]" SheetName="Raya">
+                <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Out_DT_Extractedata]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Jumia" />
+                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.Yellow]" DisplayName="Set Range Color Yellow To Lowest Price" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="A2:B2" SheetName="Jumia">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -200,7 +195,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ExcelSetRangeColor>
-                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.Yellow]" DisplayName="Set Range Color Yellow To Lowest Price" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_3" Range="A2:B2" SheetName="Raya">
+                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.red]" DisplayName="Set Range Color Red to Max Price" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_2" Range="[&quot;A&quot;+(Out_DT_Extractedata.Rows.Count+1).ToString+&quot;:B&quot;+(Out_DT_Extractedata.Rows.Count+1).ToString]" SheetName="Jumia">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -213,13 +208,6 @@
           </ui:ExcelApplicationScope.Body>
         </ui:ExcelApplicationScope>
       </Sequence>
-    </Sequence>
-    <Sequence DisplayName="PostCondition" sap:VirtualizedContainerService.HintSize="518,83" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
     </Sequence>
   </Sequence>
 </Activity>
