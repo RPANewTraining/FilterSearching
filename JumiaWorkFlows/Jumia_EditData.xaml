@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>947,2077</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>908,1663</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Jumia_FilterData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -82,20 +82,20 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Jumia_FilterData" sap:VirtualizedContainerService.HintSize="957,2012" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Jumia_FilterData" sap:VirtualizedContainerService.HintSize="560,1598" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="FilterData" sap:VirtualizedContainerService.HintSize="915,1920" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="FilterData" sap:VirtualizedContainerService.HintSize="518,1506" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Filter Data" sap:VirtualizedContainerService.HintSize="873,578" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence DisplayName="Filter Data" sap:VirtualizedContainerService.HintSize="476,678" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="NameList" />
           <Variable x:TypeArguments="s:String[]" Name="SearchingArray" />
@@ -112,6 +112,14 @@
           </Assign.To>
           <Assign.Value>
             <InArgument x:TypeArguments="s:String[]">[Split(In_Searching," ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Boolean">[In_DT_Extractedata.CaseSensitive]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
           </Assign.Value>
         </Assign>
         <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,386" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[SearchingArray]">
@@ -134,7 +142,7 @@
                           <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
                         </ui:FilterOperationArgument.Column>
                         <ui:FilterOperationArgument.Operand>
-                          <InArgument x:TypeArguments="x:String">[item.Trim]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[StrConv(item.ToLower,vbstrconv.ProperCase).Trim]</InArgument>
                         </ui:FilterOperationArgument.Operand>
                       </ui:FilterOperationArgument>
                       <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTENDSWITH">
@@ -172,20 +180,20 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:ForEach>
       </Sequence>
-      <Sequence DisplayName="Write Data in excel" sap:VirtualizedContainerService.HintSize="873,1210" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <Sequence DisplayName="Write Data in excel" sap:VirtualizedContainerService.HintSize="476,696" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="831,1118" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="Data.xlsx">
+        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,604" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="Data.xlsx">
           <ui:ExcelApplicationScope.Body>
             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="797,1009" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,495" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataTable" Name="FreeData" />
                 </Sequence.Variables>
@@ -194,8 +202,8 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Out_DT_Extractedata]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="755,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Jumia" />
-                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.Yellow]" DisplayName="Set Range Color Yellow To Lowest Price" sap:VirtualizedContainerService.HintSize="755,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="A2:B2" SheetName="Jumia">
+                <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Out_DT_Extractedata]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Jumia" />
+                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.Yellow]" DisplayName="Set Range Color Yellow To Lowest Price" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="A2:B2" SheetName="Jumia">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -203,7 +211,13 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ExcelSetRangeColor>
-                <If Condition="[IsNothing(Out_DT_Extractedata)]" DisplayName="If -&gt;Check Exists data Before Coloring Cells" sap:VirtualizedContainerService.HintSize="755,565" sap2010:WorkflowViewState.IdRef="If_1">
+                <If Condition="[IsNothing(Out_DT_Extractedata)]" DisplayName="If -&gt;Check Exists data Before Coloring Cells" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="376,408" sap2010:WorkflowViewState.IdRef="Sequence_9">
                       <sap:WorkflowViewStateService.ViewState>

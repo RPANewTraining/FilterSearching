@@ -101,7 +101,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ExcelDeleteRange>
-              <ui:ExcelSetRangeColor Color="[System.Drawing.Color.White]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="284,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_2" Range="A:B" SheetName="Jumia" />
+              <ui:ExcelSetRangeColor Color="[System.Drawing.Color.WhiteSmoke]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="284,185" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_2" Range="A:B" SheetName="Jumia" />
               <ui:ExcelDeleteRange DisplayName="Delete Range" sap:VirtualizedContainerService.HintSize="284,51" sap2010:WorkflowViewState.IdRef="ExcelDeleteRange_2" Range="A:B" SheetName="Jumia" ShiftCells="False" ShiftOption="ShiftUp">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
