@@ -61,7 +61,6 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="242,401" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -121,15 +120,9 @@
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Searching_RayaResultPage_SortingResult workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="RayaWorkFlows\Searching_RayaResultPage_SortingResult.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DT_Extractedata">
-            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DT_ExtractData" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="In_Searching">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StrSearching" />
-          </InArgument>
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DT_Extractedata">
-            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="RayaData" />
-          </OutArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DT_Extractedata">[DT_ExtractData]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="In_Searching">[StrSearching]</InArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DT_Extractedata">[RayaData]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
@@ -146,9 +139,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Jumia_HomePage_Seaching workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="JumiaWorkFlows\Jumia_HomePage_Seaching.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="In_Str_Searching">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StrSearching" />
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="In_Str_Searching">[StrSearching]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Jumia_ResultPage_Sorting workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="JumiaWorkFlows\Jumia_ResultPage_Sorting.xaml">
@@ -158,22 +149,14 @@
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Jumia_ResultPage_CollectData workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="JumiaWorkFlows\Jumia_ResultPage_CollectData.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DT_ExtractDataTable">
-            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="JumiaData" />
-          </OutArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DT_ExtractDataTable">[JumiaData]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Jumia_EditData workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="JumiaWorkFlows\Jumia_EditData.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="In_Searching">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StrSearching" />
-          </InArgument>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DT_Extractedata">
-            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="JumiaData" />
-          </InArgument>
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DT_Extractedata">
-            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="EditJumiaData" />
-          </OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="In_Searching">[StrSearching]</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="In_DT_Extractedata">[JumiaData]</InArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_DT_Extractedata">[EditJumiaData]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Jumia_CloseApp workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="JumiaWorkFlows\Jumia_CloseApp.xaml">
